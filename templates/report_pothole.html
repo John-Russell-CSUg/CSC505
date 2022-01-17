@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Report Pothole {% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+<p>{{msg}}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form class="form-group" action='#' method="POST">
+    <label>Address of Pothole: </label>
+    <p><input type="text" name="address"/></p>
+    <p>
+        <label>Part of the Street: </label>
+        <select name="location">
+            <option value="middle">Middle</option>
+            <option value="curb">Curb</option>
+            <option value="sidewalk">Sidewalk</option>
+        </select>
+    </p>
+    <p>
+        <label> Damage Type: </label>
+        <select name="damage_type">
+            <option value="crack">Crack</option>
+            <option value="chip">Chip</option>
+            <option value="destroy">Destroyed</option>
+        </select>
+    </p>
+    <p>
+        <label>Size: </label>
+        <input type="range" name="size" value="1" min="1" max="10"
+               oninput="this.nextElementSibling.value = this.value"/>
+        <output>1</output>
+    </p>
+
+    <p><input type="submit" value="submit"/></p>
+</form>
+{% endblock %}

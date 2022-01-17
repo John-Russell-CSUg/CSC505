@@ -1,4 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<button>Report a New Pothole</button>
+<form action="/report_pothole" method="GET",  style="margin: 5px auto">
+<button type="submit">Report a New Pothole</button>
+</form>
+<form action="/view_pothole" method="GET" style="margin: 5px auto">
+<button type="submit">Create a New Workorder</button>
+</form>
 {% endblock %}

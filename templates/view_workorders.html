@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} View All Pothole Reports {% endblock %}
+{% block content %}
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col"> ID </th>
+        <th scope="col"> Report ID </th>
+        <th scope="col"> Equipment</th>
+        <th scope="col"> Crew </th>
+        <th scope="col"> Hours </th>
+        <th scope="col"> Filler </th>
+        <th scope="col"> Cost </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in values %}
+    <tr>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.report_id}}</td>
+        <td>{{item.equipment}}</td>
+        <td>{{item.crew}}</td>
+        <td>{{item.hours}}</td>
+        <td>{{item.filler}}</td>
+        <td>${{item.cost}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

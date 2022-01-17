@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Create a Workorder {% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <label>Address of Pothole: </label> {{street_address}}
+<form action='/create_workorder/{{id}}' method="POST" style="border: black solid">
+     <p><label>Assign Equipment: </label>
+         <select name="equipment">
+            <option value="1">Small</option>
+            <option value="2">Medium</option>
+            <option value="3">Large</option>
+        </select></p>
+    <p><label>Assign Repair Crew: </label>
+         <select name="crew">
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select></p>
+    <p><label>Hours: </label>
+           <input type="range" name="hours" value="1" min="1" max="25"
+               oninput="this.nextElementSibling.value = this.value"/>
+        <output>1</output></p>
+     <p><label>Filler Material: </label>
+           <input type="range" name="filler" value="1" min="1" max="25"
+               oninput="this.nextElementSibling.value = this.value"/>
+        <output>1</output></p>
+    <p><input type="submit" value="submit"/></p>
+</form>
+{% endblock %}
